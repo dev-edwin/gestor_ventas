@@ -17,39 +17,11 @@ home
         <div class="hero-body">
             <div class="container">
                 <h1 class="title">
-                    Hello, Admin.
+                    Nuestros Proveedores
                 </h1>
                 <h2 class="subtitle">
                     I hope you are having a great day!
                 </h2>
-            </div>
-        </div>
-    </section>
-    <section class="info-tiles">
-        <div class="tile is-ancestor has-text-centered">
-            <div class="tile is-parent">
-                <article class="tile is-child box">
-                    <p class="title">439k</p>
-                    <p class="subtitle">Users</p>
-                </article>
-            </div>
-            <div class="tile is-parent">
-                <article class="tile is-child box">
-                    <p class="title">59k</p>
-                    <p class="subtitle">Products</p>
-                </article>
-            </div>
-            <div class="tile is-parent">
-                <article class="tile is-child box">
-                    <p class="title">3.4k</p>
-                    <p class="subtitle">Open Orders</p>
-                </article>
-            </div>
-            <div class="tile is-parent">
-                <article class="tile is-child box">
-                    <p class="title">19</p>
-                    <p class="subtitle">Exceptions</p>
-                </article>
             </div>
         </div>
     </section>
@@ -58,7 +30,7 @@ home
             <div class="card events-card">
                 <header class="card-header">
                     <p class="card-header-title">
-                        Proveedores
+                        Listado de Proveedores
                     </p>
                     <a href="#" class="card-header-icon" aria-label="more options">
       <span class="icon">
@@ -77,6 +49,7 @@ home
                                     <td width="5%"><i class="fa fa-bell-o"></i></td>
                                     <td><?php echo $proveedor['nombre']?></td>
                                     <td class="level-right"><a class="button is-small is-primary" href="#">Action</a></td>
+                                    <td class="level-right"><a class="button is-small is-primary" href="#">Action</a></td>
                                 </tr>
                                 <?php
                                     }
@@ -94,7 +67,7 @@ home
             <div class="card">
                 <header class="card-header">
                     <p class="card-header-title">
-                        Inventory Search
+                        Buscar Proveedor
                     </p>
                     <a href="#" class="card-header-icon" aria-label="more options">
       <span class="icon">
@@ -119,7 +92,7 @@ home
             <div class="card">
                 <header class="card-header">
                     <p class="card-header-title">
-                        User Search
+                        Agregar Proveedor
                     </p>
                     <a href="#" class="card-header-icon" aria-label="more options">
       <span class="icon">
