@@ -13,7 +13,8 @@ class Proveedores extends BaseController
         return view('admin/proveedores/index',$data);
     }
 
-    public function create(){
-        return view('admin/proveedores/create');
+    public function store(){
+        // return view('admin/proveedores/create');
+        echo "hpña";
     }
 }

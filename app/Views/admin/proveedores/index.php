@@ -4,7 +4,7 @@ home
 <?= $this->endSection()?>
 
 <?= $this->section('content')?>
-<input id="base_url" type="hide" value="<?= base_url() ?>">
+<input id="base_url" type="hidden" value="<?= base_url() ?>">
 <div class="column is-9">
     <nav class="breadcrumb" aria-label="breadcrumbs">
         <ul>
@@ -129,7 +129,7 @@ home
     function addProveedor(){
         let name = $('#name_proveedor').val();
         let base_url = $('#base_url').val();
-        let controllador = `${base_url}admin/store`;
+        let controllador = `${base_url}:8080/admin/store`;
         $.ajax({
             url:controllador,
             type:"POST",
@@ -138,7 +138,7 @@ home
                 alert("ok");
             },
             error: ()=>{
-                
+                alert("error");
             }
         })
     }
