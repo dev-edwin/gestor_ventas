@@ -15,6 +15,11 @@ class Proveedores extends BaseController
 
     public function store(){
         // return view('admin/proveedores/create');
-        echo "hpña";
+        $data = [
+            'nombre' => $this->request->getPost('name')
+        ];
+
+        $model = model('proveedores');
+        $model -> save($data);
     }
 }
