@@ -36,7 +36,12 @@ $routes->set404Override();
 // We get a performance increase by specifying the default
 // route since we don't have to scan directories.
 $routes->get('/', 'Home::index');
-$routes->get('proveedores', 'Proveedores::index');
+$routes->group('admin',['namespace'=>'App\Controllers\Admin'],function($routes){
+    $routes->get('proveedores', 'Proveedores::index');
+    $routes->post('store', 'Proveedores::store');
+    // $routes->get('','Home::index',['as'=>'home']);
+    // $routes->get('libreria','Home::sayHi');
+});
 
 /*
  * --------------------------------------------------------------------

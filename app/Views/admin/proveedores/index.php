@@ -4,6 +4,7 @@ home
 <?= $this->endSection()?>
 
 <?= $this->section('content')?>
+<input id="base_url" type="hide" value="<?= base_url() ?>">
 <div class="column is-9">
     <nav class="breadcrumb" aria-label="breadcrumbs">
         <ul>
@@ -37,7 +38,7 @@ home
                             <i class="fa fa-angle-down" aria-hidden="true"></i>
                         </span>
                     </a> -->
-                    <a href="#" class="button is-small is-primary"><i class="fa-thin fa-plus"></i>Agregar</a>
+                    <a href="<?= base_url('add_proveedor') ?>" class="button is-small is-primary"><i class="fa-thin fa-plus"></i>Agregar</a>
                 </header>
                 <div class="card-table">
                     <div class="content">
@@ -70,24 +71,24 @@ home
             <div class="card">
                 <header class="card-header">
                     <p class="card-header-title">
-                        Buscar Proveedor
+                        Agregar proveedor
                     </p>
                     <a href="#" class="card-header-icon" aria-label="more options">
-      <span class="icon">
-        <i class="fa fa-angle-down" aria-hidden="true"></i>
-      </span>
-    </a>
+                        <span class="icon">
+                            <i class="fa fa-angle-down" aria-hidden="true"></i>
+                        </span>
+                    </a>
                 </header>
                 <div class="card-content">
                     <div class="content">
                         <div class="control has-icons-left has-icons-right">
                             <input class="input is-large" type="text" placeholder="">
                             <span class="icon is-medium is-left">
-          <i class="fa fa-search"></i>
-        </span>
+                                <i class="fa fa-search"></i>
+                            </span>
                             <span class="icon is-medium is-right">
-          <i class="fa fa-check"></i>
-        </span>
+                                <i class="fa fa-check"></i>
+                            </span>
                         </div>
                     </div>
                 </div>
@@ -98,21 +99,22 @@ home
                         Agregar Proveedor
                     </p>
                     <a href="#" class="card-header-icon" aria-label="more options">
-      <span class="icon">
-        <i class="fa fa-angle-down" aria-hidden="true"></i>
-      </span>
-    </a>
+                        <span class="icon">
+                            <i class="fa fa-angle-down" aria-hidden="true"></i>
+                        </span>
+                    </a>
                 </header>
                 <div class="card-content">
                     <div class="content">
                         <div class="control has-icons-left has-icons-right">
-                            <input class="input is-large" type="text" placeholder="">
+                            <input id="name_proveedor" class="input is-large" type="text" placeholder="">
                             <span class="icon is-medium is-left">
-          <i class="fa fa-search"></i>
-        </span>
+                                <i class="fa fa-search"></i>
+                            </span>
                             <span class="icon is-medium is-right">
-          <i class="fa fa-check"></i>
-        </span>
+                                <i class="fa fa-check"></i>
+                            </span>
+                            <button class="butto is-medium is-primary" onclick="addProveedor()">Agregar</button>
                         </div>
                     </div>
                 </div>
@@ -123,4 +125,22 @@ home
 </div>
 </div>
 <script async type="text/javascript" src="../js/bulma.js"></script>
+<script>
+    function addProveedor(){
+        let name = $('#name_proveedor').val();
+        let base_url = $('#base_url').val();
+        let controllador = `${base_url}admin/store`;
+        $.ajax({
+            url:controllador,
+            type:"POST",
+            data:{name:name},
+            success: (response)=>{
+                alert("ok");
+            },
+            error: ()=>{
+                
+            }
+        })
+    }
+</script>
 <?= $this->endSection()?>

@@ -21,6 +21,7 @@
     <?= $this->renderSection('content')?> <!-- en vez de la ruta main, creamos un alias para definir el contenido-->
     <?= $this->include('admin/layout/footer')?><!-- de esta forma indicamos donde esta la ubicación del elemento modificación para realiza la modificacion-->
     <?= $this->renderSection('js')?> <!-- creamos un alias para definir el tipos de js que se utilizara-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 </body>
 
 </html>
