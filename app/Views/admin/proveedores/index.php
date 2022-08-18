@@ -32,11 +32,12 @@ home
                     <p class="card-header-title">
                         Listado de Proveedores
                     </p>
-                    <a href="#" class="card-header-icon" aria-label="more options">
-      <span class="icon">
-        <i class="fa fa-angle-down" aria-hidden="true"></i>
-      </span>
-    </a>
+                    <!-- <a href="#" class="card-header-icon" aria-label="more options">
+                        <span class="icon">
+                            <i class="fa fa-angle-down" aria-hidden="true"></i>
+                        </span>
+                    </a> -->
+                    <a href="#" class="button is-small is-primary"><i class="fa-thin fa-plus"></i>Agregar</a>
                 </header>
                 <div class="card-table">
                     <div class="content">
@@ -48,8 +49,10 @@ home
                                 <tr>
                                     <td width="5%"><i class="fa fa-bell-o"></i></td>
                                     <td><?php echo $proveedor['nombre']?></td>
-                                    <td class="level-right"><a class="button is-small is-primary" href="#">Action</a></td>
-                                    <td class="level-right"><a class="button is-small is-primary" href="#">Action</a></td>
+                                    <td class="level-right">
+                                        <a class="button is-small is-info" href="#">Editar</a> 
+                                        <a class="button is-small is-danger" href="#">Borrar</a>
+                                    </td>
                                 </tr>
                                 <?php
                                     }
