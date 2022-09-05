@@ -12,43 +12,95 @@
 </style>
 <input id="base_url" type="hidden" value="<?= base_url() ?>">
 
-<div class="columns">
+<div class="columns is-multiline">
     <div class="column is-12">
-        <?php if((session('msg'))){ ?>
-        <article class="message is-<?= session('msg.type') ?>">
-            <div class="message-body">
-                <?= session('msg.body ') ?>
-            </div>
-        </article>
-        <?php } ?>
-        <div class="card events-card">
-            <header class="card-header">
-                <p class="card-header-title">
-                    <span class="title">Todas las ventas</span>
-                </p>
-                <!-- <a href="<?= base_url(route_to('admin/add_student')) ?>" class="button is-primary">
-                </a> -->
-                <button class="button is-primary modal-button js-modal-trigger" data-target="modal_agregarProducto" aria-haspopup="true">
-                    <i class="fa-solid fa-user-plus"></i> Agregar producto
-                </button>
-            </header>
-            <div class="card-table">
-                <div class="content">
-                    <table class="table is-fullwidth is-striped">
-                        <thead>
-                            <tr>
-                                <th>#</th>
-                                <th>Producto</th>
-                                <th>Unidad</th>
-                                <th>p/Mayor</th>
-                                <th>p/Menor</th>
-                                <th></th>
-                            </tr>
-                        </thead>
-                        <tbody id="productoTable">
-
-                        </tbody>
-                    </table>
+        <input class="input" id="totalVenta" name="totalVenta" value="" type="hidden">
+        <label class="label" for="cliente">
+            Cliente codigo<span class="has-text-danger">*</span> 
+            <input class="input" id="cliente" name="cliente" value="" list="clientes" onkeyup="mayus(this);">
+        </label>
+        <datalist id="clientes">
+            <?php foreach($clientes as $cliente):?>
+                <option value="<?= $cliente['nit'] ?> - <?= $cliente['nombre'] ?>"></option>
+            <?php endForeach;?>
+        </datalist>
+    </div>
+    <div class="column is-12">
+        <div class="container">
+            <button class="button is-primary" onclick="finalizarVenta()">
+            <i class="fa-solid fa-cash-register"></i>&nbsp;&nbsp;Finalizar venta
+            </button>
+        </div>
+    </div>
+    <div class="column is-12">
+        <div class="container">
+            <div class="columns">
+                <div class="column is-5">
+                    <div class="card events-card">
+                        <div class="card-table">
+                            <div class="content">
+                                <table class="table is-fullwidth is-striped">
+                                    <thead>
+                                        <tr>
+                                            <th>#</th>
+                                            <th>Producto</th>
+                                            <th>Unidad</th>
+                                            <th>Precio</th>
+                                            <th>Cantidad</th>
+                                            <th></th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <?php $cont = 1;?>
+                                        <?php foreach ($productos as $producto):?>
+                                            <tr>
+                                                <td><?= $cont ?></td>
+                                                <td><?= $producto['nombre_producto'] ?></td>
+                                                <td><?= $producto['unidad'] ?></td>
+                                                <td>
+                                                    <select name="" id="precio<?= $producto['id'] ?>">
+                                                        <option value="<?= $producto['precio_menor'] ?>"><?= $producto['precio_menor'] ?></option>
+                                                        <option value="<?= $producto['precio_mayor'] ?>"><?= $producto['precio_mayor'] ?></option>
+                                                    </select>
+                                                </td>
+                                                <td>
+                                                    <input class="input" id="cantidad<?= $producto['id'] ?>" value="" type="number">
+                                                </td>
+                                                <td>
+                                                    <button class="button is-primary is-small" onclick="addCarrito(<?= $producto['id'] ?>)" title="Agregar al carrito">
+                                                        <i class="fa-solid fa-cart-shopping"></i>
+                                                    </button>
+                                                </td>
+                                            </tr>
+                                        <?php $cont++; ?>
+                                        <?php endForeach; ?>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="column is-7">
+                    <div class="card events-card">
+                        <div class="card-table">
+                            <div class="content">
+                                <table class="table is-fullwidth is-striped">
+                                    <thead>
+                                        <tr>
+                                            <th>#</th>
+                                            <th>Producto</th>
+                                            <th>Unidad</th>
+                                            <th>cantidad</th>
+                                            <th>P/U</th>
+                                            <th>Sub Total Bs</th>
+                                            <th></th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="carritoVentaTable"></tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -82,7 +134,7 @@
     </div>
 </div>
 <!-- MODAL -->
-<script src="<?= base_url('resource/js/producto.js')?>">
+<script src="<?= base_url('resource/js/venta.js')?>">
 
 </script>
 <script src="<?= base_url('resource/js/modalBulma.js') ?>"></script>

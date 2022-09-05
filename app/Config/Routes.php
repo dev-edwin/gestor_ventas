@@ -50,10 +50,12 @@ $routes->group('admin',['namespace'=>'App\Controllers\Admin'],function($routes){
     $routes->post('store_producto', 'Producto::store');
     $routes->post('update_producto', 'Producto::update');
     // VENTAS
-    $routes->get('ventas', 'Ventas::index');
-    $routes->get('ver_ventas', 'Ventas::verVentas');
-    $routes->post('store_venta', 'Ventas::store');
-    $routes->post('update_venta', 'Ventas::update');
+    $routes->get('ventas', 'Venta::index');
+    $routes->get('ver_ventas', 'Venta::verVentas');
+    $routes->post('get_detalle_venta', 'Venta::getDetalleVenta');
+    $routes->post('store_producto_venta', 'Venta::storeDetalleVenta');
+    $routes->post('update_venta', 'Venta::saveVenta');
+    $routes->post('delete_producto_venta', 'Venta::deleteProductoVenta');
     // COMPRAS
     $routes->get('compras', 'Compra::index');
     $routes->post('getcompras', 'Compra::getCompras');
