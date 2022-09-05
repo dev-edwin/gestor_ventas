@@ -5,22 +5,36 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-     <!-- creamos un alias para definir el tipo de estilo que se utilizara-->
-    <title><?= $this->renderSection('css')?>&nbsp;-&nbsp;Admin - Free Bulma template</title>
+    <title><?= $this->renderSection('title') ?>&nbsp;-&nbsp;Administraci&oacute;n</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css">
     <!-- Bulma Version 0.9.0-->
     <link rel="stylesheet" href="https://unpkg.com/bulma@0.9.0/css/bulma.min.css" />
     <link rel="stylesheet" type="text/css" href="../css/admin.css">
-    <?= $this->renderSection('css')?> <!-- creamos un alias para definir el tipo de estilo que se utilizara-->
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css">
 </head>
 
 <body>
-    <?= $this->include('admin/layout/header')?><!-- de esta forma indicamos donde esta la ubicación del elemento header para realiza la modificacion-->
-    <?= $this->renderSection('content')?> <!-- en vez de la ruta main, creamos un alias para definir el contenido-->
-    <?= $this->include('admin/layout/footer')?><!-- de esta forma indicamos donde esta la ubicación del elemento modificación para realiza la modificacion-->
-    <?= $this->renderSection('js')?> <!-- creamos un alias para definir el tipos de js que se utilizara-->
+    <style>
+    </style>
+    <!-- START NAV -->
+    <?= $this->include('admin/layout/header') ?>
+    <!-- END NAV -->
+    <div class="columns">
+        <div class="column is-2">
+            <?= $this->include('Admin/layout/menu') ?>
+        </div>
+        <div class="column is-10">
+            <section class="section">
+                <?= $this->renderSection('content') ?>
+            </section>
+        </div>
+    </div>
+    <section class="section">
+    </section>
+    <?= $this->include('admin/layout/footer') ?>
+    <script async type="text/javascript" src="../js/bulma.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 </body>
 

@@ -1,78 +1,46 @@
-    <!-- START NAV -->
-    <nav class="navbar is-white">
-        <div class="container">
-            <div class="navbar-brand">
-                <a class="navbar-item brand-text" href="../index.html">
-          Bulma Admin
+<nav class="navbar has-background-primary" role="navigation" aria-label="main navigation">
+    <div class="navbar-brand">
+        <a class="navbar-item" href="https://bulma.io">
+            <!-- <img src="https://virtual.certificatebolivia.com.bo/pluginfile.php/1/core_admin/logo/0x150/1641502145/logo%20certificate%20srl%20transparente%20con%20brillo.png"
+                alt="Certificate Bolivia"> -->
+                <h2>Administración - Gestor Ventas</h2>
         </a>
-                <div class="navbar-burger burger" data-target="navMenu">
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                </div>
-            </div>
-            <div id="navMenu" class="navbar-menu">
-                <div class="navbar-start">
-                    <a class="navbar-item" href="admin.html">
-            Home
-          </a>
-                    <a class="navbar-item" href="admin.html">
-            Orders
-          </a>
-                    <a class="navbar-item" href="admin.html">
-            Payments
-          </a>
-                    <a class="navbar-item" href="admin.html">
-            Exceptions
-          </a>
-                                 <a class="navbar-item" href="admin.html">
-            Reports
-          </a>
-                </div>
+        <div class="navbar-burger burger" data-target="navMenu">
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+        </div>
+    </div>
 
+    <div id="navMenu" class="navbar-menu">
+        <div class="navbar-end">
+            <div class="navbar-item has-dropdown is-hoverable">
+                <a class="navbar-link">
+                    <img class="is-rounded" src="https://source.unsplash.com/random/96x96" alt="Placeholder image">&nbsp;
+                    Admin
+                </a>
+
+                <div class="navbar-dropdown">
+                    <a class="navbar-item">
+                        <i class="fa-solid fa-user"></i>&nbsp;Perfil
+                    </a>
+                    <hr class="navbar-divider">
+                    <a class="navbar-item" href="<?= base_url(route_to('signout')) ?>">
+                        <i class="fa-solid fa-arrow-right-from-bracket"></i>&nbsp;Cerrar Sesión
+                    </a>
+                </div>
             </div>
         </div>
-    </nav>
-    <!-- END NAV -->
-    <div class="container">
-        <div class="columns">
-            <div class="column is-3 ">
-                <aside class="menu is-hidden-mobile">
-                    <p class="menu-label">
-                        General
-                    </p>
-                    <ul class="menu-list">
-                        <li><a class="is-active">Dashboard</a></li>
-                        <li><a>Customers</a></li>
-                        <li><a>Other</a></li>
-                    </ul>
-                    <p class="menu-label">
-                        Administration
-                    </p>
-                    <ul class="menu-list">
-                        <li><a>Team Settings</a></li>
-                        <li>
-                            <a>Manage Your Team</a>
-                            <ul>
-                                <li><a>Members</a></li>
-                                <li><a>Plugins</a></li>
-                                <li><a>Add a member</a></li>
-                                <li><a>Remove a member</a></li>
-                            </ul>
-                        </li>
-                        <li><a>Invitations</a></li>
-                        <li><a>Cloud Storage Environment Settings</a></li>
-                        <li><a>Authentication</a></li>
-                        <li><a>Payments</a></li>
-                    </ul>
-                    <p class="menu-label">
-                        Transactions
-                    </p>
-                    <ul class="menu-list">
-                        <li><a>Payments</a></li>
-                        <li><a>Transfers</a></li>
-                        <li><a>Balance</a></li>
-                        <li><a>Reports</a></li>
-                    </ul>
-                </aside>
-            </div>
+    </div>
+</nav>
+
+<script>
+    (function () {
+        var burger = document.querySelector('.burger');
+        var menu = document.querySelector('#' + burger.dataset.target);
+        burger.addEventListener('click', function () {
+            burger.classList.toggle('is-active');
+            menu.classList.toggle('is-active');
+        });
+    })();
+</script>

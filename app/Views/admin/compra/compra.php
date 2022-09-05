@@ -1,7 +1,7 @@
 <?= $this->extend('Admin/layout/main') ?>
 
 <?= $this->section('title') ?>
-    Proveedores
+    Productos
 <?= $this->endSection() ?>
 
 <?= $this->section('content') ?>
@@ -24,25 +24,24 @@
         <div class="card events-card">
             <header class="card-header">
                 <p class="card-header-title">
-                    <span class="title">Lista de proveedores</span>
+                    <span class="title">Compra #<?= $compraId ?></span>
                 </p>
-                <button class="button is-primary modal-button js-modal-trigger" data-target="modal_agregarProveedor" aria-haspopup="true">
-                    <i class="fa-solid fa-user-plus"></i> Agregar proveedor
-                </button>
+                
             </header>
             <div class="card-table">
-                <div class="content">
-                    <table class="table is-fullwidth is-striped">
-                        <thead>
-                            <tr>
-                                <th>#</th>
-                                <th>Proveedor</th>
-                                <th></th>
-                            </tr>
-                        </thead>
-                        <tbody id="proveedorTable"></tbody>
-                    </table>
+            <div class="content">
+                <div class="columns">
+                    <div class="column is-12">
+                        <div class="card events-card">
+                            <div class="card-table">
+                                <section class="section">
+                                    <?= $this->include('admin/compra/form') ?>
+                                </section>
+                            </div>
+                        </div>
+                    </div>
                 </div>
+            </div>
             </div>
         </div>
     </div>
@@ -50,11 +49,11 @@
 
 
 <!-- MODAL -->
-<div id="modal_agregarProveedor" class="modal">
+<div id="modal_agregarProducto" class="modal">
     <div class="modal-background"></div>
     <div class="modal-card">
         <header class="modal-card-head">
-            <p class="modal-card-title">Agregar proveedor</p>
+            <p class="modal-card-title">Agregar producto</p>
             <button class="delete" aria-label="close"></button>
         </header>
         <section class="modal-card-body">
@@ -64,7 +63,7 @@
                         <div class="card events-card">
                             <div class="card-table">
                                 <section class="section">
-                                    <?= $this->include('admin/proveedores/form') ?>
+                                    <?= $this->include('admin/producto/form') ?>
                                 </section>
                             </div>
                         </div>
@@ -75,6 +74,7 @@
     </div>
 </div>
 <!-- MODAL -->
-<script src="<?= base_url('resource/js/proveedor.js') ?>"></script>
+
+</script>
 <script src="<?= base_url('resource/js/modalBulma.js') ?>"></script>
 <?= $this->endSection() ?>

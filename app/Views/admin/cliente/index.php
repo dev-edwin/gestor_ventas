@@ -1,7 +1,7 @@
 <?= $this->extend('Admin/layout/main') ?>
 
 <?= $this->section('title') ?>
-    Proveedores
+    Clientes
 <?= $this->endSection() ?>
 
 <?= $this->section('content') ?>
@@ -24,10 +24,10 @@
         <div class="card events-card">
             <header class="card-header">
                 <p class="card-header-title">
-                    <span class="title">Lista de proveedores</span>
+                    <span class="title">Lista de clientes</span>
                 </p>
-                <button class="button is-primary modal-button js-modal-trigger" data-target="modal_agregarProveedor" aria-haspopup="true">
-                    <i class="fa-solid fa-user-plus"></i> Agregar proveedor
+                <button class="button is-primary modal-button js-modal-trigger" data-target="modal_agregarCliente" aria-haspopup="true">
+                    <i class="fa-solid fa-user-plus"></i> Agregar cliente
                 </button>
             </header>
             <div class="card-table">
@@ -36,11 +36,12 @@
                         <thead>
                             <tr>
                                 <th>#</th>
-                                <th>Proveedor</th>
+                                <th>Nombre</th>
+                                <th>NIT</th>
                                 <th></th>
                             </tr>
                         </thead>
-                        <tbody id="proveedorTable"></tbody>
+                        <tbody id="clienteTable"></tbody>
                     </table>
                 </div>
             </div>
@@ -50,11 +51,11 @@
 
 
 <!-- MODAL -->
-<div id="modal_agregarProveedor" class="modal">
+<div id="modal_agregarCliente" class="modal">
     <div class="modal-background"></div>
     <div class="modal-card">
         <header class="modal-card-head">
-            <p class="modal-card-title">Agregar proveedor</p>
+            <p class="modal-card-title">Agregar cliente</p>
             <button class="delete" aria-label="close"></button>
         </header>
         <section class="modal-card-body">
@@ -64,7 +65,7 @@
                         <div class="card events-card">
                             <div class="card-table">
                                 <section class="section">
-                                    <?= $this->include('admin/proveedores/form') ?>
+                                    <?= $this->include('admin/cliente/form') ?>
                                 </section>
                             </div>
                         </div>
@@ -75,6 +76,8 @@
     </div>
 </div>
 <!-- MODAL -->
-<script src="<?= base_url('resource/js/proveedor.js') ?>"></script>
+<script src="<?= base_url('resource/js/cliente.js')?>">
+
+</script>
 <script src="<?= base_url('resource/js/modalBulma.js') ?>"></script>
 <?= $this->endSection() ?>
