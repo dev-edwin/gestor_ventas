@@ -91,6 +91,7 @@ class Venta extends BaseController
                                             ->where('venta_id',$venta_id)
                                             ->find();
         return view("admin/factura/boucher",$data);
+        
     }
 
 }

@@ -73,9 +73,13 @@ $routes->group('admin',['namespace'=>'App\Controllers\Admin'],function($routes){
     $routes->post('store_cliente', 'Cliente::store');
     $routes->post('update_cliente', 'Cliente::update');
     // COTIZACIONES
-    $routes->get('cotizaciones', 'Cotizaciones::index');
-    $routes->post('store_cotizacion', 'Cotizaciones::store');
-    $routes->post('update_cotizacion', 'Cotizaciones::update');
+    $routes->get('cotizaciones', 'Cotizacion::index');
+    $routes->get('ver_cotizaciones', 'Cotizacion::vercotizaciones');
+    $routes->get('cotizacion/(:num)', 'Cotizacion::boucher/$1');
+    $routes->post('get_detalle_cotizacion', 'Cotizacion::getDetalleCotizacion');
+    $routes->post('store_producto_cotizacion', 'Cotizacion::storeDetalleCotizacion');
+    $routes->post('update_cotizacion', 'Cotizacion::saveCotizacion');
+    $routes->post('delete_producto_cotizacion', 'Cotizacion::deleteProductoCotizacion');
     // USUARIOS
     $routes->get('usuarios', 'Usuarios::index');
     $routes->post('store_usuario', 'Usuarios::store');

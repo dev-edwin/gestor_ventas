@@ -4,20 +4,26 @@ namespace App\Models;
 
 use CodeIgniter\Model;
 
-class CotizacionCliente extends Model
+class DetalleCotizacionModel extends Model
 {
     protected $DBGroup          = 'default';
-    protected $table            = 'cotizacionclientes';
+    protected $table            = 'detalle_cotizacion';
     protected $primaryKey       = 'id';
     protected $useAutoIncrement = true;
     protected $insertID         = 0;
     protected $returnType       = 'array';
     protected $useSoftDeletes   = false;
     protected $protectFields    = true;
-    protected $allowedFields    = [];
+    protected $allowedFields    = [
+        'producto_id',
+        'cotizacion_id',
+        'monto_unitario',
+        'cantidad',
+        'monto_total',
+    ];
 
     // Dates
-    protected $useTimestamps = false;
+    protected $useTimestamps = true;
     protected $dateFormat    = 'datetime';
     protected $createdField  = 'created_at';
     protected $updatedField  = 'updated_at';
