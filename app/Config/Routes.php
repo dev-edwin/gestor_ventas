@@ -36,7 +36,16 @@ $routes->set404Override();
 // We get a performance increase by specifying the default
 // route since we don't have to scan directories.
 $routes->get('/', 'Home::index');
-$routes->group('admin',['namespace'=>'App\Controllers\Admin'],function($routes){
+
+$routes->group('auth',['namespace'=>'App\Controllers\Auth'],function($routes){
+    $routes->get('register','Register::index',['as'=>'register']);
+    $routes->post('store','Register::store');
+    $routes->get('login','Login::index',['as'=>'login']);
+    $routes->post('check','Login::signin',['as'=>'signin']);
+    $routes->get('logout', 'Login::signout',['as'=>'signout']);
+});
+
+$routes->group('admin',['namespace'=>'App\Controllers\Admin','filter'=>'auth:Administrador,Gerente'],function($routes){
     // PROVEEDORES
     $routes->get('proveedores', 'Proveedor::index');
     $routes->post('getproveedores', 'Proveedor::getproveedores');
