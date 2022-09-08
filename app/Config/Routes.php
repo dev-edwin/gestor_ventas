@@ -52,6 +52,7 @@ $routes->group('admin',['namespace'=>'App\Controllers\Admin'],function($routes){
     // VENTAS
     $routes->get('ventas', 'Venta::index');
     $routes->get('ver_ventas', 'Venta::verVentas');
+    $routes->get('factura/(:num)', 'Venta::boucher/$1');
     $routes->post('get_detalle_venta', 'Venta::getDetalleVenta');
     $routes->post('store_producto_venta', 'Venta::storeDetalleVenta');
     $routes->post('update_venta', 'Venta::saveVenta');

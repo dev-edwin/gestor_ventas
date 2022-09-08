@@ -71,7 +71,7 @@ class Venta extends BaseController
             $detalleVentaModel->save($productoCarrito);
         }
 
-        echo json_encode("ok");
+        echo json_encode($detVentaId);
     }
 
     public function deleteProductoVenta(){
@@ -79,6 +79,18 @@ class Venta extends BaseController
         $model = model("DetalleVentaModel");
         $model->delete($detalleVenta_id);
         echo json_encode("ok");
+    }
+
+    public function boucher($venta_id){
+        $ventaModel = model("VentaModel");
+        $detVentaModel = model("DetalleVentaModel");
+        if(!$data['venta'] = $ventaModel->where('id',$venta_id)->first()){
+            return "";
+        }
+        $data['detVentas'] = $detVentaModel->join('producto as p','producto_id = p.id')
+                                            ->where('venta_id',$venta_id)
+                                            ->find();
+        return view("admin/factura/boucher",$data);
     }
 
 }

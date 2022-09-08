@@ -199,6 +199,8 @@ function finalizarVenta(){
         complete: (data) => {},
         success: (response) => {
             // $('#totalCompra').val("");
+            let venta_id = JSON.parse(response);
+            window.open(`${base_url}/admin/factura/${venta_id}`, '_blank', 'location=yes');
             window.location.href = `${base_url}/admin/ventas`;
         },
         error: () => {
